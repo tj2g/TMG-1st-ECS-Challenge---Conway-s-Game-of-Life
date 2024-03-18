@@ -7,8 +7,9 @@ public partial struct CameraMovementSystem : ISystem
 {
     private int i;
 
-    public void OnCreate()
+    public void OnCreate(ref SystemState state)
     {
+        state.RequireForUpdate<ConfigComponent>();
         // Quick ghetto fix to make sure the camera doesn't reorient to original point on movement
         i = 0;
     }

@@ -6,6 +6,12 @@ using Unity.Burst;
 [BurstCompile]
 public partial struct SettingNeighborsSystem : ISystem
 {
+    [BurstCompile]
+    public void OnCreate(ref SystemState state)
+    {
+        state.RequireForUpdate<ConfigComponent>();
+    }
+
     public void OnUpdate(ref SystemState state)
     {
         // Running once to set up the neighbors

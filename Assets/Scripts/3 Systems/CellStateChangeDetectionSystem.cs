@@ -2,9 +2,17 @@ using Unity.Entities;
 using Unity.Burst;
 using Unity.Collections;
 
+
+[UpdateAfter(typeof(SettingNeighborsSystem))]
 [BurstCompile]
 public partial struct CellStateChangeDetectionSystem : ISystem
 {
+    [BurstCompile]
+    public void OnCreate(ref SystemState state)
+    {
+        state.RequireForUpdate<ConfigComponent>();
+    }
+
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {

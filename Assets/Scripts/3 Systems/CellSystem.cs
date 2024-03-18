@@ -3,6 +3,8 @@ using Unity.Rendering;
 using Unity.Burst;
 using Unity.Mathematics;
 
+
+[UpdateAfter(typeof(SettingNeighborsSystem))]
 [BurstCompile]
 public partial struct CellSystem : ISystem
 {
